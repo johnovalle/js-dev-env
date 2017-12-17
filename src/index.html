@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- using ejs to generate different html for each environment -->
+  <% if (htmlWebpackPlugin.options.testTrackingToken) { %>
+  <!-- insert error tracking -->
+  <meta testTracking='<%=htmlWebpackPlugin.options.testTrackingToken%>'>
+  <% } %>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,6 +23,5 @@
     </thead>
     <tbody id="users"></tbody>
   </table>
-  <script src="bundle.js"></script>
 </body>
 </html>
